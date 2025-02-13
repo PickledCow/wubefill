@@ -1,5 +1,10 @@
 
 
+local category = "chemistry"
+if mods["space-age"] then
+    category = "chemistry-or-cryogenics"
+end
+
 local wube_synthesis = {
     type = "recipe",
     name = "wube-synthesis",
