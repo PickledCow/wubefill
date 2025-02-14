@@ -1,5 +1,4 @@
--- items
-
+-- items.lua
 
 local wubefill = table.deepcopy(data.raw["item"]["landfill"])
 wubefill.name = "wubefill"

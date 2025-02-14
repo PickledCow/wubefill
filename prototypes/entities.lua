@@ -1,9 +1,6 @@
--- -- entities.lua
+-- entities.lua
 
 if mods["space-age"] then
-    -- data.raw["simple-entity"]["wube-logo-space-platform"] = nil
-
-
     local wube_space_logo = {
         type = "simple-entity-with-owner",
         name = "wubefill-space-logo",
@@ -56,7 +53,8 @@ if mods["space-age"] then
                 min = 0.0,
                 max = 0.0
             }
-        }    
+        }
+
     }
 
     data:extend({wube_space_logo})
