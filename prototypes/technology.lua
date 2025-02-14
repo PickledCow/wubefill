@@ -1,10 +1,32 @@
 -- technology.lua
 
+local regular_cost = 2014
+local regular_ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}}
+
+if settings.startup["wubefill-cheap-research"].value then
+    regular_cost = 100
+    regular_ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}}
+end
+
+
+local regular_unlocks = {
+    {type = "unlock-recipe", recipe = "wube-synthesis"},
+    {type = "unlock-recipe", recipe = "wubefill"},
+    {type = "unlock-recipe", recipe = "wubricant-refinement"}
+}
+
+if settings.startup["wubefill-simple-recipes"].value then
+    regular_unlocks = {
+        {type = "unlock-recipe", recipe = "wube-synthesis"},
+        {type = "unlock-recipe", recipe = "wubefill"}
+    }
+end
+
 data:extend({
     {
         type = "technology",
         name = "wube-processing",
-        prerequisites = {"chemical-science-pack"},
+        prerequisites = {"lubricant"},
         icons = {
             {
                 icon = "__core__/graphics/wube-logo.png",
@@ -12,20 +34,22 @@ data:extend({
             }
         },
         unit = {
-            count = 2014,
-            ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}},
-            time = 60,
+            count = regular_cost,
+            ingredients = regular_ingredients,
+            time = 30,
         },
-        effects = {
-            {type = "unlock-recipe", recipe = "wube-synthesis"},
-            {type = "unlock-recipe", recipe = "wubefill"},
-            {type = "unlock-recipe", recipe = "wubricant-refinement"}
-        }
+        effects = regular_unlocks
     }
 })
 
 
 if mods["space-age"] then
+
+    local space_cost = 2024
+
+    if settings.startup["wubefill-cheap-research"].value then
+        space_cost = 200
+    end
 
     data:extend({
         {
@@ -39,7 +63,7 @@ if mods["space-age"] then
                 }
             },
             unit = {
-                count = 2024,
+                count = space_cost,
                 ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"space-science-pack", 1}},
                 time = 60,
             },
