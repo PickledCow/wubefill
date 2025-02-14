@@ -6,23 +6,21 @@ if mods["space-age"] then
 end
 
 local wubefill_ingredients = {
-    {type = "fluid", name = "lubricant", amount = 500},
-    {type = "fluid", name = "water", amount = 500},
-    {type = "item", name = "electronic-circuit", amount = 5},
-    {type = "item", name = "advanced-circuit", amount = 5}
+    {type = "fluid", name = "wube", amount = 50},
+    {type = "item", name = "stone", amount = 50}
 }
 
 local wube_synthesis_ingredients = {
     {type = "fluid", name = "lubricant", amount = 500},
     {type = "fluid", name = "water", amount = 500},
-    {type = "item", name = "electronic-circuit", amount = 5},
-    {type = "item", name = "advanced-circuit", amount = 5}
+    {type = "item", name = "electronic-circuit", amount = 10},
+    {type = "item", name = "advanced-circuit", amount = 10}
 }
 
 if settings.startup["wubefill-simple-recipes"].value then
     wubefill_ingredients = {
-        {type = "fluid", name = "wube", amount = 50},
-        {type = "item", name = "stone", amount = 50}
+        {type = "fluid", name = "wube", amount = 10},
+        {type = "item", name = "stone", amount = 10}
     }
     wube_synthesis_ingredients = {
         {type = "fluid", name = "lubricant", amount = 100},
@@ -99,7 +97,7 @@ if mods["space-age"] then
                 icon = "__wubefill__/graphics/wube-space-platform.png",
                 energy_required = 30,
                 ingredients = {
-                    {type = "item", name = "wubefill", amount = 1},
+                    {type = "fluid", name = "wube", amount = 50},
                     {type = "item", name = "space-platform-foundation", amount = 25}
                 },
                 results = {{type = "item", name = "wubefill-space-logo", amount = 1}}

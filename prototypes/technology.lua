@@ -1,11 +1,9 @@
 -- technology.lua
 
 local regular_cost = 2014
-local regular_ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}}
 
 if settings.startup["wubefill-cheap-research"].value then
     regular_cost = 100
-    regular_ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}}
 end
 
 
@@ -35,7 +33,7 @@ data:extend({
         },
         unit = {
             count = regular_cost,
-            ingredients = regular_ingredients,
+            ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}},
             time = 30,
         },
         effects = regular_unlocks
